@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 13:31:21 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/25 17:19:12 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/21 12:09:27 by gmolin            #+#    #+#             */
+/*   Updated: 2019/10/23 16:28:20 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	int h_l;
-	int n_l;
-
-	h_l = 0;
-	if (needle[0] == '\0')
-		return ((char *)haystack);
-	while (haystack[h_l] != '\0')
+	if (alst && del)
 	{
-		n_l = 0;
-		while (haystack[h_l + n_l] == needle[n_l])
-		{
-			n_l++;
-			if (needle[n_l] == '\0')
-				return ((char *)&haystack[h_l]);
-		}
-		h_l++;
+		del((*alst)->content, (*alst)->content_size);
+		free(*alst);
+		*alst = NULL;
 	}
-	return (0);
 }

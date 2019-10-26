@@ -6,39 +6,29 @@
 /*   By: gmolin <gmolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 18:30:37 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/17 08:25:08 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/10/25 12:00:04 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strlcat(char *s1, const char *s2, unsigned int size)
+#include "libft.h"
+
+size_t		ft_strlcat(char *s1, const char *s2, size_t size)
 {
-	int i;
-	int len;
-	int c;
+	size_t	i;
+	size_t	j;
+	size_t	len_s2;
 
-	len = ft_strlen(s1);
-	
-}
-
-
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
-{
-	size_t dstlen;
-	size_t srclen;
-	size_t i;
-	size_t j;
-
-	dstlen = ft_strlen(dst);
-	srclen = ft_strlen((char*)src);
 	i = 0;
-	j = ft_strlen(dst);
-	if (dstsize < dstlen + 1)
-		return (srclen + dstsize);
-	while (i < (dstsize - dstlen - 1))
-	{
-		dst[j] = src[i];
-		j++;
+	len_s2 = ft_strlen(s2);
+	while (s1[i] != '\0' && i < size)
 		i++;
+	j = 0;
+	while (s2[j] != '\0' && (i + j + 1) < size)
+	{
+		s1[i + j] = s2[j];
+		j++;
 	}
-	dst[j] = '\0';
-	return (dstlen + srclen);
+	if (i < size)
+		s1[i + j] = '\0';
+	return (i + len_s2);
+}

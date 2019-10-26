@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 13:31:21 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/25 17:19:12 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/19 20:06:13 by gmolin            #+#    #+#             */
+/*   Updated: 2019/10/24 18:42:55 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	int h_l;
-	int n_l;
+	int		i;
+	size_t	c;
 
-	h_l = 0;
-	if (needle[0] == '\0')
-		return ((char *)haystack);
-	while (haystack[h_l] != '\0')
+	i = 0;
+	c = 0;
+	if (s1 == NULL || s1 == NULL)
+		return (0);
+	while (s1[i] == s2[i])
 	{
-		n_l = 0;
-		while (haystack[h_l + n_l] == needle[n_l])
-		{
-			n_l++;
-			if (needle[n_l] == '\0')
-				return ((char *)&haystack[h_l]);
-		}
-		h_l++;
+		if (c == (n - 1) || s1[i] == '\0' || s2[i] == '\0')
+			break ;
+		i++;
+		c++;
 	}
-	return (0);
+	if ((s1[i] == '\0' && s2[i] == '\0') || n == 0)
+		return (1);
+	else if (s1[i] == s2[i])
+		return (1);
+	else
+		return (0);
 }

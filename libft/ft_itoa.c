@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 13:31:21 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/25 17:19:12 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/19 22:22:03 by gmolin            #+#    #+#             */
+/*   Updated: 2019/10/23 18:24:02 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+char	*ft_itoa(int n)
 {
-	int h_l;
-	int n_l;
+	char	*str;
+	int		n_len;
+	int		neg;
+	long	tmp;
 
-	h_l = 0;
-	if (needle[0] == '\0')
-		return ((char *)haystack);
-	while (haystack[h_l] != '\0')
+	neg = 0;
+	tmp = n;
+	if (n < 0)
 	{
-		n_l = 0;
-		while (haystack[h_l + n_l] == needle[n_l])
-		{
-			n_l++;
-			if (needle[n_l] == '\0')
-				return ((char *)&haystack[h_l]);
-		}
-		h_l++;
+		tmp *= -1;
+		neg = 1;
 	}
-	return (0);
+	n_len = ft_countdigit(n);
+	if (!(str = ft_strnew(n_len + neg)))
+		return (NULL);
+	str[n_len + neg] = '\0';
+	while (n_len)
+	{
+		n_len--;
+		str[n_len + neg] = (tmp % 10) + '0';
+		tmp = tmp / 10;
+	}
+	if (neg == 1)
+		str[0] = '-';
+	return (str);
 }

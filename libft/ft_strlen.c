@@ -6,13 +6,15 @@
 /*   By: gmolin <gmolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 10:27:07 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/16 17:29:25 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/10/25 18:36:09 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
+#include "libft.h"
+
+size_t	ft_strlen(const char *str)
 {
-	int i;
+	size_t	i;
 
 	i = 0;
 	while (str[i] != '\0')

@@ -6,14 +6,14 @@
 /*   By: gmolin <gmolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 14:56:24 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/16 16:47:42 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/10/25 19:18:58 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_isalpha(int c)
 {
 	if (c >= 65 && c <= 90)
-		return (2);
+		return (1);
 	else if (c >= 97 && c <= 122)
 		return (1);
 	else

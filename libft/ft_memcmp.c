@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmolin <gmolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 18:08:28 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/25 18:48:06 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/17 16:23:04 by gmolin            #+#    #+#             */
+/*   Updated: 2019/10/26 15:24:15 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t	i;
-	int		len;
+	char	*tmps1;
+	char	*tmps2;
 
-	len = ft_strlen(s1);
+	if ((!s1 && !s2) || n == 0)
+		return (0);
 	i = 0;
-	if (s2[0] == 0)
-		return (s1);
-	while (s2[i] != '\0' && i < n)
+	tmps1 = (char *)s1;
+	tmps2 = (char *)s2;
+	while (i < n)
 	{
-		s1[len] = s2[i];
-		len++;
+		if (tmps1[i] != tmps2[i])
+			return ((unsigned char)tmps1[i] - (unsigned char)tmps2[i]);
 		i++;
 	}
-	s1[len] = '\0';
-	return (s1);
+	return (0);
 }

@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmolin <gmolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 11:41:56 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/23 12:36:55 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/17 14:05:44 by gmolin            #+#    #+#             */
+/*   Updated: 2019/10/26 15:34:05 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t n)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	size_t i;
+	size_t			i;
+	unsigned char	*dst_c;
+	unsigned char	*src_c;
 
+	dst_c = (unsigned char *)dst;
+	src_c = (unsigned char *)src;
 	i = 0;
-	while (src[i] != '\0' && i < n)
-	{
-		dst[i] = src[i];
-		i++;
-	}
 	while (i < n)
 	{
-		dst[i] = '\0';
+		dst_c[i] = src_c[i];
+		if (src_c[i] == (unsigned char)c)
+			return (dst + i + 1);
 		i++;
 	}
-	return (dst);
+	return (NULL);
 }

@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 13:31:21 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/25 17:19:12 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/23 17:24:12 by gmolin            #+#    #+#             */
+/*   Updated: 2019/10/23 20:15:31 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+char	*ft_strlowcase(char *str)
 {
-	int h_l;
-	int n_l;
+	int i;
 
-	h_l = 0;
-	if (needle[0] == '\0')
-		return ((char *)haystack);
-	while (haystack[h_l] != '\0')
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i] != '\0')
 	{
-		n_l = 0;
-		while (haystack[h_l + n_l] == needle[n_l])
+		if (str[i] >= 65 && str[i] <= 90)
 		{
-			n_l++;
-			if (needle[n_l] == '\0')
-				return ((char *)&haystack[h_l]);
+			str[i] = str[i] + 32;
+			i++;
 		}
-		h_l++;
+		else
+			i++;
 	}
-	return (0);
+	return (str);
 }

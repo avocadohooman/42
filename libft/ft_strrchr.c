@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmolin <gmolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 10:35:27 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/23 18:31:01 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/17 10:36:55 by gmolin            #+#    #+#             */
+/*   Updated: 2019/10/26 15:27:10 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+char	*ft_strrchr(const char *s, int c)
 {
-	int		i;
-	char	*dst;
+	char	*ret;
+	int		len;
+	char	cc;
 
-	i = 0;
-	if (!(dst = (char *)malloc(sizeof(char) * ft_strlen(src) + 1)))
+	ret = (char *)s;
+	len = ft_strlen(s);
+	cc = (char)c;
+	if (!s)
 		return (NULL);
-	while (src[i] != '\0')
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
+	if (cc == '\0')
+		return ((&ret[len]));
+	while (ret[len] != cc && len >= 0)
+		len--;
+	if (ret[len] == cc)
+		return (&ret[len]);
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 17:14:09 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/16 18:06:57 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/10/24 18:11:07 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strcat(char *s1, const char *s2)
 {
-	int i;
-	int len;
+	int		i;
+	int		len;
 
 	len = ft_strlen(s1);
 	i = 0;
@@ -25,7 +25,7 @@ char	*ft_strcat(char *s1, const char *s2)
 	{
 		s1[len] = s2[i];
 		len++;
-		i++; 
+		i++;
 	}
 	s1[len] = '\0';
 	return (s1);
