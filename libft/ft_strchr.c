@@ -18,14 +18,14 @@ char	*ft_strchr(const char *s, int c)
 	int		len;
 	char	*tmp;
 
-	tmp = (char *)s;
+	tmp = (char*)s;
 	s_l = 0;
 	len = ft_strlen(s);
 	if (c == 0)
 		return (&tmp[len]);
 	while (s[s_l] != '\0')
 	{
-		if (s[s_l] == c)
+		if (s[s_l] == (unsigned char)c)
 			return (&tmp[s_l]);
 		s_l++;
 	}

@@ -47,6 +47,11 @@ OUTPUT = ./ft_lstdelone.o ./ft_putendl_fd.o ./ft_striteri.o ./ft_strrev.o \
 		./ft_putchar_fd.o ./ft_strequ.o ./ft_strnstr.o ./ft_lstdel.o \
     	./ft_putendl.o ./ft_striter.o ./ft_strrchr.o ./ft_strjoin.o \
 		./ft_strsplit.o ./ft_lstmap.o ./ft_lstpushback.o
+
+OUTPUT_2 = ./*.o
+
+NAME2 = *.a
+
 		
 all: $(NAME)
 
@@ -58,7 +63,14 @@ $(NAME):
 clean:
 		/bin/rm -f $(OUTPUT)
 
+clean2:
+		/bin/rm -f $(OUTPUT_2)
+
 fclean: clean
 		/bin/rm -f $(NAME)
 
-re: fclean all
+fclean2: clean2
+		/bin/rm -f $(NAME2)
+
+re: fclean2 all
+

@@ -14,13 +14,13 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*ret;
-	int		len;
-	char	cc;
+	char			*ret;
+	int				len;
+	unsigned char	cc;
 
-	ret = (char *)s;
+	ret = (char*)s;
 	len = ft_strlen(s);
-	cc = (char)c;
+	cc = (unsigned char)c;
 	if (!s)
 		return (NULL);
 	if (cc == '\0')
