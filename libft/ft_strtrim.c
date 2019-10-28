@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmolin <gmolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 21:38:45 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/24 18:19:51 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/10/28 13:11:16 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ char	*ft_strtrim(char const *s)
 	if (!s)
 		return (0);
 	i = 0;
-	len = ft_strlen(s);
-	while (*s && s[i] <= 32)
+	len = ft_strlen(s) - 1;
+	while (*s && ft_isspace(s[i]))
 		i++;
-	while (*s && s[len] <= 32)
+	while (len >= 0 && ft_isspace(s[len]))
 		len--;
-	if (len < 0)
-		return ((str = ft_strnew(1)));
+	if (i >= len)
+		return ((str = ft_strnew(0)));
 	if (!(str = malloc(sizeof(char) * (len - i + 2))))
 		return (NULL);
 	j = 0;
-	while (i < len + 1)
+	while (i <= len)
 		str[j++] = s[i++];
 	str[j] = '\0';
 	return (str);

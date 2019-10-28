@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:05:44 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/26 15:34:05 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/10/28 09:44:38 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	size_t				i;
-	unsigned char		*dst_c;
-	unsigned const char	*src_c;
+	size_t			i;
+	unsigned char	*dst_c;
+	unsigned char	*src_c;
 
 	dst_c = (unsigned char *)dst;
 	src_c = (unsigned char *)src;

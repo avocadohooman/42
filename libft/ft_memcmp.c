@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 16:23:04 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/26 15:24:15 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/10/28 09:22:00 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
+	size_t			i;
 	unsigned char	*tmps1;
 	unsigned char	*tmps2;
 

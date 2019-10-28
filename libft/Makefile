@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gmolin <gmolin@student.42.fr>              +#+  +:+       +#+         #
+#    By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/16 09:36:49 by gmolin            #+#    #+#              #
-#    Updated: 2019/10/25 18:26:17 by gmolin           ###   ########.fr        #
+#    Updated: 2019/10/28 09:13:03 by gmolin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,11 +47,6 @@ OUTPUT = ./ft_lstdelone.o ./ft_putendl_fd.o ./ft_striteri.o ./ft_strrev.o \
 		./ft_putchar_fd.o ./ft_strequ.o ./ft_strnstr.o ./ft_lstdel.o \
     	./ft_putendl.o ./ft_striter.o ./ft_strrchr.o ./ft_strjoin.o \
 		./ft_strsplit.o ./ft_lstmap.o ./ft_lstpushback.o
-
-OUTPUT_2 = ./*.o
-
-NAME2 = *.a
-
 		
 all: $(NAME)
 
@@ -63,14 +58,7 @@ $(NAME):
 clean:
 		/bin/rm -f $(OUTPUT)
 
-clean2:
-		/bin/rm -f $(OUTPUT_2)
-
 fclean: clean
 		/bin/rm -f $(NAME)
 
-fclean2: clean2
-		/bin/rm -f $(NAME2)
-
-re: fclean2 all
-
+re: fclean all
