@@ -47,6 +47,8 @@ OUTPUT = ./ft_lstdelone.o ./ft_putendl_fd.o ./ft_striteri.o ./ft_strrev.o \
 		./ft_putchar_fd.o ./ft_strequ.o ./ft_strnstr.o ./ft_lstdel.o \
     	./ft_putendl.o ./ft_striter.o ./ft_strrchr.o ./ft_strjoin.o \
 		./ft_strsplit.o ./ft_lstmap.o ./ft_lstpushback.o
+
+OUTPUT2 = ./*.o
 		
 all: $(NAME)
 
@@ -57,6 +59,9 @@ $(NAME):
 
 clean:
 		/bin/rm -f $(OUTPUT)
+
+clean2:
+		/bin/rm -f $(OUTPUT2)
 
 fclean: clean
 		/bin/rm -f $(NAME)

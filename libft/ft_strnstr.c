@@ -14,27 +14,24 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
-	int		h_l;
-	int		n_l;
-	size_t	i;
+	size_t		h_l;
+	size_t		n_l;
 
-	i = 0;
 	h_l = 0;
-	if (!*needle)
-		return ((char *)haystack);
 	if (needle[0] == '\0')
-		return ((char *)haystack);
-	while (i < n-- && haystack[h_l] != '\0')
+		return ((char*)haystack);
+	while (haystack[h_l] != '\0' && h_l < n)
 	{
-		n_l = 0;
-		while (haystack[h_l + n_l] == needle[n_l] && i < n - 1)
+		if (needle[0] == haystack[h_l])
 		{
-			n_l++;
+			n_l = 1;
+			while (haystack[h_l + n_l] == needle[n_l] && needle[n_l] != '\0'
+			&& h_l + n_l < n)
+				n_l++;
 			if (needle[n_l] == '\0')
-				return ((char *)&haystack[h_l]);
+				return ((char*)&haystack[h_l]);
 		}
 		h_l++;
-		i++;
 	}
 	return (0);
 }
