@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 21:38:45 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/28 13:11:16 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/10/29 15:06:52 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strtrim(char const *s)
 		len--;
 	if (i >= len)
 		return ((str = ft_strnew(0)));
-	if (!(str = malloc(sizeof(char) * (len - i + 2))))
+	if (!(str = (char*)malloc(sizeof(char) * (len - i + 2))))
 		return (NULL);
 	j = 0;
 	while (i <= len)

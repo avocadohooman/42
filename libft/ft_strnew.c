@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 10:37:41 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/28 18:34:57 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/10/29 15:11:44 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnew(size_t size)
 	size_t	i;
 
 	i = 0;
-	str = malloc(sizeof(char) * (size + 1));
+	str = (char*)malloc(sizeof(char) * (size + 1));
 	if (str == NULL)
 		return (NULL);
 	while (i < size)

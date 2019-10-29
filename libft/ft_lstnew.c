@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 11:00:10 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/26 15:07:55 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/10/29 15:08:48 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list *node;
 
-	node = malloc(sizeof(t_list));
+	node = (t_list *)malloc(sizeof(t_list));
 	if (node == NULL)
 		return (NULL);
 	if (content == NULL)

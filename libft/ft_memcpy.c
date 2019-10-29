@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 12:15:07 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/28 14:06:03 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/10/29 15:16:55 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	unsigned char		*dst_c;
 	unsigned char		*src_c;
 
-	if (dst == src || n <= 0)
-		return (dst);
 	dst_c = (unsigned char *)dst;
 	src_c = (unsigned char *)src;
+	if ((!dst_c && !src_c))
+		return (0);
 	i = 0;
 	while (i < n)
 	{

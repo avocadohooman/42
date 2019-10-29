@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 14:05:44 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/28 09:44:38 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/10/29 15:29:32 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		dst_c[i] = src_c[i];
 		if (src_c[i] == (unsigned char)c)
+		{
+			dst_c[i] = src_c[i];
 			return (dst + i + 1);
+		}
+		dst_c[i] = src_c[i];
 		i++;
 	}
 	return (NULL);

@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmolin <gmolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 22:12:40 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/24 10:29:25 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/10/29 10:13:36 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int		ft_check_c(const char s, char c)
+static	int		ft_check_c(char const s, char c)
 {
 	if (c == s)
 		return (1);
 	return (0);
 }
 
-static	int		ft_row_count(const char *str, char c)
+static	int		ft_row_count(char const *str, char c)
 {
 	int i;
 	int count;
@@ -37,7 +37,7 @@ static	int		ft_row_count(const char *str, char c)
 	return (count);
 }
 
-static int		ft_rowl(const char *str, char c)
+static int		ft_rowl(char const *str, char c)
 {
 	int i;
 	int len;
@@ -54,7 +54,7 @@ static int		ft_rowl(const char *str, char c)
 	return (len);
 }
 
-char			**ft_strsplit(const char *str, char c)
+char			**ft_strsplit(char const *str, char c)
 {
 	char	**w;
 	int		i;
