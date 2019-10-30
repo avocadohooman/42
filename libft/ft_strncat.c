@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 18:08:28 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/29 14:56:43 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/10/29 17:39:46 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,19 @@
 
 char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	size_t	i;
-	size_t	len;
+	int		i;
+	size_t	j;
 
-	len = ft_strlen(s1);
 	i = 0;
-	while (s2[i] != '\0' && i < n)
-	{
-		s1[len] = s2[i];
-		len++;
+	j = 0;
+	while (s1[i])
 		i++;
+	while (s2[j] && j < n)
+	{
+		s1[i] = s2[j];
+		i++;
+		j++;
 	}
-	s1[len] = '\0';
+	s1[i] = '\0';
 	return (s1);
 }

@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 15:44:28 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/29 13:51:50 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/10/30 09:54:49 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,14 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t			i;
-	size_t			len;
-	unsigned char	*tmp;
+	size_t	i;
 
-	tmp = (unsigned char*)s;
 	i = 0;
-	len = ft_strlen(s);
-	if (c == 0)
-		return ((void*)&tmp[len]);
 	while (i < n)
 	{
-		if (tmp[i] == (unsigned char)c)
-			return ((void*)&tmp[i]);
+		if (((unsigned const char *)s)[i] == (unsigned char)c)
+			return ((void *)&s[i]);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

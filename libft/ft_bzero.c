@@ -6,22 +6,20 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 12:05:40 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/28 12:56:39 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/10/30 08:52:05 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *b, size_t len)
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*a;
-	size_t			i;
+	unsigned char	*str;
 
-	a = (unsigned char*)b;
-	i = 0;
-	while (i < len)
+	str = (unsigned char*)s;
+	while (n > 0)
 	{
-		a[i] = 0;
-		i++;
+		*(str++) = 0;
+		n--;
 	}
 }

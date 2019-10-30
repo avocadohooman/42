@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 09:31:50 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/29 15:45:23 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/10/30 08:50:51 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef	struct	s_list
 }				t_list;
 
 void			*ft_memset(void *b, int c, size_t len);
-void			ft_bzero(void *b, size_t len);
+void			ft_bzero(void *s, size_t n);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void			*ft_memmove(void *dst, const void *src, size_t n);
