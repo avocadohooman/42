@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_strcnew.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/14 16:17:12 by vkuokka           #+#    #+#             */
-/*   Updated: 2019/10/29 12:43:18 by vkuokka          ###   ########.fr       */
+/*   Created: 2019/10/20 18:17:07 by vkuokka           #+#    #+#             */
+/*   Updated: 2020/01/12 16:41:55 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_swap(int *a, int *b)
+char	*ft_strcnew(size_t size, int c)
 {
-	int tmp;
+	char	*area;
+	size_t	i;
 
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-	return ;
+	i = 0;
+	if (!(area = (char *)malloc(sizeof(char) * (size + 1))))
+		return (NULL);
+	while (i < size)
+	{
+		area[i] = c;
+		i++;
+	}
+	area[i] = '\0';
+	return (area);
 }

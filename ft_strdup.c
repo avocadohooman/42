@@ -5,26 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 10:35:27 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/29 14:53:05 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/17 10:48:32 by vkuokka           #+#    #+#             */
+/*   Updated: 2019/11/19 09:27:42 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+char	*ft_strdup(const char *s1)
 {
-	int		i;
-	char	*dst;
+	size_t	i;
+	char	*copy;
 
-	i = 0;
-	if (!(dst = (char*)malloc(sizeof(char) * (ft_strlen(src) + 1))))
+	if (!(copy = ft_strnew(ft_strlen(s1))))
 		return (NULL);
-	while (src[i] != '\0')
+	i = 0;
+	while (s1[i])
 	{
-		dst[i] = src[i];
+		copy[i] = s1[i];
 		i++;
 	}
-	dst[i] = '\0';
-	return (dst);
+	copy[i] = '\0';
+	return (copy);
 }

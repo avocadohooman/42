@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_lstlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/14 16:17:12 by vkuokka           #+#    #+#             */
-/*   Updated: 2019/10/29 12:43:18 by vkuokka          ###   ########.fr       */
+/*   Created: 2019/11/11 11:04:11 by vkuokka           #+#    #+#             */
+/*   Updated: 2019/11/14 13:16:43 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_swap(int *a, int *b)
+size_t	ft_lstlen(t_list **alst)
 {
-	int tmp;
+	size_t	i;
+	t_list	*cur_list;
 
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-	return ;
+	i = 1;
+	cur_list = *alst;
+	while (cur_list)
+	{
+		i++;
+		cur_list = cur_list->next;
+	}
+	return (i - 1);
 }

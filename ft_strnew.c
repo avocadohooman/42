@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/18 10:37:41 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/29 15:11:44 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/20 18:17:07 by vkuokka           #+#    #+#             */
+/*   Updated: 2020/01/12 16:11:26 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,10 @@
 
 char	*ft_strnew(size_t size)
 {
-	char	*str;
-	size_t	i;
+	char *area;
 
-	i = 0;
-	str = (char*)malloc(sizeof(char) * (size + 1));
-	if (str == NULL)
+	if (!(area = (char *)malloc(sizeof(char) * (size + 1))))
 		return (NULL);
-	while (i < size)
-	{
-		str[i] = '\0';
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
+	ft_memset(area, '\0', (size + 1));
+	return (area);
 }

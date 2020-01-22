@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_strupper.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/14 16:17:12 by vkuokka           #+#    #+#             */
-/*   Updated: 2019/10/29 12:43:18 by vkuokka          ###   ########.fr       */
+/*   Created: 2020/01/20 11:37:03 by gmolin            #+#    #+#             */
+/*   Updated: 2020/01/20 11:44:24 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_swap(int *a, int *b)
+void	ft_strupper(char *str)
 {
-	int tmp;
+	int i;
 
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-	return ;
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] = str[i] - 32;
+		i++;
+	}
 }

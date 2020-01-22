@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_islower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/14 16:17:12 by vkuokka           #+#    #+#             */
-/*   Updated: 2019/10/29 12:43:18 by vkuokka          ###   ########.fr       */
+/*   Created: 2019/10/26 12:16:39 by vkuokka           #+#    #+#             */
+/*   Updated: 2020/01/20 11:34:37 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_swap(int *a, int *b)
+int		ft_islower(int c)
 {
-	int tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-	return ;
+	if (c >= 97 && c <= 122)
+		return (1);
+	return (0);
 }

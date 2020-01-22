@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_iswhitespace.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/14 16:17:12 by vkuokka           #+#    #+#             */
-/*   Updated: 2019/10/29 12:43:18 by vkuokka          ###   ########.fr       */
+/*   Created: 2019/10/22 15:05:26 by vkuokka           #+#    #+#             */
+/*   Updated: 2019/10/28 14:27:13 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_swap(int *a, int *b)
+int		ft_iswhitespace(int c)
 {
-	int tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-	return ;
+	if (c == ' ' || c == '\n' || c == '\t' ||
+	c == '\v' || c == '\r' || c == '\f')
+		return (1);
+	return (0);
 }

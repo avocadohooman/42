@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/17 09:35:29 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/29 14:45:12 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/17 13:10:30 by vkuokka           #+#    #+#             */
+/*   Updated: 2020/01/07 12:38:57 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	size_t i;
 
 	i = 0;
-	while (s[i] != c)
+	while (s[i])
 	{
-		if (s[i] == '\0')
-			return (NULL);
+		if (s[i] == c)
+			return ((char *)s + i);
 		i++;
 	}
-	return (char *)&s[i];
+	if (s[i] == c)
+		return ((char *)s + i);
+	return (NULL);
 }

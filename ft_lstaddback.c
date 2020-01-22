@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_lstaddback.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuokka <vkuokka@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/14 16:17:12 by vkuokka           #+#    #+#             */
-/*   Updated: 2019/10/29 12:43:18 by vkuokka          ###   ########.fr       */
+/*   Created: 2019/10/26 10:25:51 by vkuokka           #+#    #+#             */
+/*   Updated: 2019/10/26 12:21:17 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_swap(int *a, int *b)
+void	ft_lstaddback(t_list **alst, t_list *new)
 {
-	int tmp;
+	t_list *cur_list;
 
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-	return ;
+	if (!alst || !new)
+		return ;
+	cur_list = *alst;
+	while (cur_list->next)
+		cur_list = cur_list->next;
+	cur_list->next = new;
 }

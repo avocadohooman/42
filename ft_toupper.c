@@ -5,15 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 16:36:31 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/29 15:12:32 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/17 17:00:35 by vkuokka           #+#    #+#             */
+/*   Updated: 2020/01/20 11:33:23 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int		ft_toupper(int c)
 {
-	if (c >= 'a' && c <= 'z')
+	if (ft_islower(c))
 		return (c - 32);
-	else
-		return (c);
+	return (c);
 }

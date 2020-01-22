@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 14:56:24 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/29 17:11:43 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/17 16:02:09 by vkuokka           #+#    #+#             */
+/*   Updated: 2019/10/28 12:37:10 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int		ft_isalpha(int c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+	if (ft_isupper(c) || ft_islower(c))
 		return (1);
 	return (0);
 }

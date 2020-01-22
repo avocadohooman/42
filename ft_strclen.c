@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclen.c                                        :+:      :+:    :+:  */
+/*   ft_strclen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmolin <gmolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 10:27:07 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/25 18:36:09 by gmolin           ###   ########.fr       */
+/*   Created: 2019/11/15 09:41:59 by gmolin            #+#    #+#             */
+/*   Updated: 2019/11/15 10:08:15 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strclen(const char *str, int c)
+size_t	ft_strclen(const char *str, char c)
 {
 	size_t	i;
 

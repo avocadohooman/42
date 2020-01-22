@@ -3,82 +3,59 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/19 22:12:40 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/29 10:13:36 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/23 10:48:17 by vkuokka           #+#    #+#             */
+/*   Updated: 2019/10/28 14:10:15 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int		ft_check_c(char const s, char c)
+static int		ft_len(char const *s, char c)
 {
-	if (c == s)
-		return (1);
-	return (0);
-}
+	size_t	count;
+	size_t	i;
 
-static	int		ft_row_count(char const *str, char c)
-{
-	int i;
-	int count;
-
-	i = 0;
 	count = 0;
-	while (str[i])
+	i = 0;
+	while (s[i])
 	{
-		if (!(ft_check_c(str[i], c)))
-			count++;
-		while (str[i + 1] && !(ft_check_c(str[i], c)))
+		while (s[i] == c && s[i])
 			i++;
-		i++;
+		if (!s[i])
+			return (count);
+		count++;
+		while (s[i] != c && s[i])
+			i++;
 	}
 	return (count);
 }
 
-static int		ft_rowl(char const *str, char c)
+char			**ft_strsplit(char const *s, char c)
 {
-	int i;
-	int len;
+	char	**array;
+	size_t	i;
+	size_t	j;
+	size_t	stopper;
 
-	i = 0;
-	len = 0;
-	while (str[i] && ft_check_c(str[i], c))
-		i++;
-	while (str[i] && (!(ft_check_c(str[i], c))))
-	{
-		len++;
-		i++;
-	}
-	return (len);
-}
-
-char			**ft_strsplit(char const *str, char c)
-{
-	char	**w;
-	int		i;
-	int		k;
-	int		j;
-
-	i = -1;
-	k = 0;
-	j = 0;
-	if (!str || !c)
-		return (0);
-	if (!(w = (char**)malloc(sizeof(char*) * (ft_row_count(str, c) + 1))))
+	if (!s || !(array = (char **)malloc(sizeof(char *)
+	* ft_len(s, c) + sizeof(char))))
 		return (NULL);
-	while (++i < ft_row_count(str, c))
+	i = 0;
+	j = 0;
+	while (s[i])
 	{
-		if (!(w[i] = (char*)malloc(sizeof(char) * (ft_rowl(&str[k], c) + 1))))
-			return (NULL);
-		j = 0;
-		while (str[k] == c)
-			k++;
-		while (str[k] && !(ft_check_c(str[k], c)))
-			w[i][j++] = str[k++];
-		w[i][j] = '\0';
+		while (s[i] == c && s[i])
+			i++;
+		stopper = i;
+		if (!s[i])
+			break ;
+		while (s[i] != c && s[i])
+			i++;
+		array[j] = ft_strsub(s, stopper, i - stopper);
+		j++;
 	}
-	w[i] = NULL;
-	return (w);
+	array[j] = NULL;
+	return (array);
 }

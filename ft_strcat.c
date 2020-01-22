@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 17:14:09 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/30 10:42:46 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/17 11:20:14 by vkuokka           #+#    #+#             */
+/*   Updated: 2020/01/10 17:50:45 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strcat(char *s1, const char *s2)
 {
-	int	i;
-	int	j;
+	size_t i;
+	size_t j;
 
 	i = 0;
 	j = 0;
@@ -23,10 +23,9 @@ char	*ft_strcat(char *s1, const char *s2)
 		i++;
 	while (s2[j])
 	{
-		s1[i] = s2[j];
-		i++;
+		s1[i + j] = s2[j];
 		j++;
 	}
-	s1[i] = '\0';
+	s1[i + j] = '\0';
 	return (s1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmolin <gmolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/23 17:19:12 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/23 17:20:53 by gmolin           ###   ########.fr       */
+/*   Created: 2020/01/06 15:27:57 by gmolin            #+#    #+#             */
+/*   Updated: 2020/01/06 15:28:46 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,24 @@
 
 char	*ft_strrev(char *str)
 {
-	int		i;
-	int		len;
-	char	c;
+	char	*beg;
+	char	*rev;
+	char	*end;
+	char	temp;
 
-	len = 0;
-	while (str[len] != '\0')
-		len++;
-	i = 0;
-	len = len - 1;
-	while (str[i] != '\0' && i < len)
+	beg = str;
+	rev = str;
+	end = str;
+	while (*end)
+		end++;
+	end--;
+	while (beg < end)
 	{
-		c = str[len];
-		str[len] = str[i];
-		str[i] = c;
-		len--;
-		i++;
+		temp = *beg;
+		*beg = *end;
+		*end = temp;
+		end--;
+		beg++;
 	}
-	return (str);
+	return (rev);
 }

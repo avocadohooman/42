@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/19 21:28:33 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/29 17:00:21 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/20 18:25:35 by vkuokka           #+#    #+#             */
+/*   Updated: 2020/01/12 16:12:32 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,25 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*str;
-	int		i;
-	int		ii;
+	size_t	i;
+	size_t	j;
+	char	*join;
 
-	if (!s1 || !s2)
-		return (0);
-	i = 0;
-	str = (char*)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (str == NULL)
+	if (!s1 || !s2 || !(join = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
 		return (NULL);
-	while (s1[i] != '\0')
+	i = 0;
+	while (s1[i])
 	{
-		str[i] = s1[i];
+		join[i] = s1[i];
 		i++;
 	}
-	ii = 0;
-	while (s2[ii] != '\0')
+	j = 0;
+	while (s2[j])
 	{
-		str[i] = s2[ii];
+		join[i] = s2[j];
 		i++;
-		ii++;
+		j++;
 	}
-	str[i] = '\0';
-	return (str);
+	join[i] = '\0';
+	return (join);
 }

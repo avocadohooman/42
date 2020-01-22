@@ -3,35 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: vkuokka <vkuokka@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 09:45:51 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/29 10:15:34 by gmolin           ###   ########.fr       */
+/*   Created: 2019/07/15 11:01:09 by vkuokka           #+#    #+#             */
+/*   Updated: 2019/10/28 12:33:20 by vkuokka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int		ft_atoi(const char *str)
 {
-	unsigned long long	res;
-	int					i;
-	int					sign;
+	int		sign;
+	int		sum;
+	size_t	i;
 
 	i = 0;
-	res = 0;
-	sign = 1;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' ||
-		str[i] == '\r' || str[i] == '\v' || str[i] == '\f')
+	while (ft_iswhitespace(str[i]))
 		i++;
+	sign = 1;
 	if (str[i] == '-')
-		sign *= -1;
+		sign = -1;
 	if (str[i] == '+' || str[i] == '-')
 		i++;
+	sum = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		res = (res * 10) + (str[i] - 48);
+		sum = sum * 10 + str[i] - '0';
 		i++;
 	}
-	if (res > 9223372036854775807)
-		return (sign == -1) ? 0 : -1;
-	return ((int)res * sign);
+	return (sum * sign);
 }

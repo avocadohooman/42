@@ -3,40 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmolin <gmolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/19 22:22:03 by gmolin            #+#    #+#             */
-/*   Updated: 2019/10/23 18:24:02 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/20 18:14:35 by vkuokka           #+#    #+#             */
+/*   Updated: 2020/01/20 09:46:18 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+static int	ft_isneg(long n)
 {
-	char	*str;
-	int		n_len;
-	int		neg;
-	long	tmp;
-
-	neg = 0;
-	tmp = n;
 	if (n < 0)
+		return (1);
+	return (0);
+}
+
+static int	ft_len(long n)
+{
+	int count;
+
+	count = 1;
+	while (n /= 10)
+		count++;
+	return (count);
+}
+
+char		*ft_itoa(long n)
+{
+	size_t			i;
+	char			*strnb;
+	unsigned int	neg;
+
+	if (n == 0)
+		return (ft_strdup("0"));
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	neg = 0;
+	if (ft_isneg(n))
 	{
-		tmp *= -1;
 		neg = 1;
+		n = n * -1;
 	}
-	n_len = ft_countdigit(n);
-	if (!(str = ft_strnew(n_len + neg)))
+	if (!(strnb = ft_strnew(neg + ft_len(n))))
 		return (NULL);
-	str[n_len + neg] = '\0';
-	while (n_len)
+	i = neg + ft_len(n) - 1;
+	while (n != 0)
 	{
-		n_len--;
-		str[n_len + neg] = (tmp % 10) + '0';
-		tmp = tmp / 10;
+		strnb[i--] = n % 10 + '0';
+		n = n / 10;
 	}
-	if (neg == 1)
-		str[0] = '-';
-	return (str);
+	if (neg)
+		strnb[0] = '-';
+	return (strnb);
 }
